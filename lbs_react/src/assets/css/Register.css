@@ -1,0 +1,64 @@
+.register
+{
+    display: flex;
+    flex-direction: column;
+    padding-top: 4vw;
+    padding-bottom: 8vw;
+    align-items: center;
+    background-color: #78081C;
+}
+
+.register div
+{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding-top: 3vw;
+    padding-bottom: 4vw;
+    border-radius: 0.5vw;
+    align-items: center;
+    background-color: #FFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.register h1
+{
+    margin: 0;
+    margin-bottom: 1.5vw;
+    padding: 0;
+    font-size: 2vw;
+    color: #78081C;
+}
+
+.register p
+{
+    margin: 0;
+    margin-bottom: 1vw;
+    padding: 0;
+    font-size: 1.2vw;
+}
+
+.register hr
+{
+    width: 43%;
+    margin-bottom: 2vw;
+    border-top: 0.2vw solid #78081C;
+}
+
+.register button
+{
+    display: flex;
+    width: 12vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    padding: 0.6vw 0;
+    border: none;
+    border-radius: 0.25vw;
+    align-self: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1vw;
+    background-color: #78081C;
+    color: #F7C301;
+}

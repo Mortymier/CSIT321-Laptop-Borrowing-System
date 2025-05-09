@@ -1,0 +1,12 @@
+.nopage
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nopage a
+{
+    color: #78081C;
+    text-decoration: underline;
+}

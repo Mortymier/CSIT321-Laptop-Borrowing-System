@@ -1,0 +1,115 @@
+.registerstudent
+{
+    display: flex;
+    flex-direction: column;
+    padding-top: 4vw;
+    padding-bottom: 8vw;
+    align-items: center;
+    background-color: #78081C;
+}
+
+.registerstudent form
+{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+    border-radius: 0.5vw;
+    background-color: #FFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.registerstudent form h1
+{
+    margin: 0;
+    margin-bottom: 2vw;
+    align-self: center;
+    font-size: 2vw;
+    color: #78081C;
+}
+
+.registerstudent form h2
+{
+    margin: 0;
+    margin-bottom: 0.5vw;
+    align-self: center;
+    font-size: 1.5vw;
+    color: #F7C301;
+}
+
+.registerstudent form hr
+{
+    width: 54%;
+    margin-bottom: 3vw;
+    border-top: 0.1vw solid #F7C301;
+}
+
+.formfield
+{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5vw;
+    padding-left: 7.5vw;
+    gap: 1vw;
+}
+
+.registerstudent form label
+{
+    width: 7vw;
+    font-size: 1.2vw;
+    font-weight: 600;
+}
+
+.registerstudent form input
+{
+    width: 12vw;
+    padding: 0.5vw;
+    border: 0.1vw solid #666;
+    border-radius: 0.25vw;
+    font-size: 1vw;
+    background-color: #DDD;
+}
+
+.buttons
+{   
+    display: flex;
+    align-items: center;
+    margin-top: 1vw;
+    justify-content: center;
+    gap: 2vw;
+}
+
+#goBack
+{
+    display: flex;
+    width: fit-content;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    padding: 0.5vw 3vw;
+    border: none;
+    border-radius: 0.25vw;
+    align-self: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1vw;
+    background-color: #F7C301;
+    color: #78081C;
+}
+
+#submitForm
+{
+    display: flex;
+    width: fit-content;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    padding: 0.5vw 3vw;
+    border: none;
+    border-radius: 0.25vw;
+    align-self: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1vw;
+    background-color: #78081C;
+    color: #F7C301;
+}

@@ -1,0 +1,42 @@
+#home
+{
+    display: flex;
+    flex-direction: column;
+    border-top: 0.2vw solid #78081C;
+}
+
+#home img
+{
+    display: block;
+    width: 100%;
+    opacity: 0.85;
+}
+
+#homeinfo
+{
+    display: flex;
+    flex-direction: column;
+    padding-top: 2vw;
+    padding-bottom: 4vw;
+    text-align: center;;
+    align-items: center;
+    background-color: #78081C;
+}
+
+#homeinfo h2
+{
+    font-size: 2vw;
+    color: #F7C301;
+}
+
+#homeinfo p
+{
+    font-size: 1.2vw;
+    color: #FFF;
+}
+
+#homeinfo a
+{
+    color: #F7C301;
+    text-decoration: underline;
+}

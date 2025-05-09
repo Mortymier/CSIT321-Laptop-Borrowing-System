@@ -1,0 +1,71 @@
+.contact
+{
+    display: flex;
+    flex-direction: column;
+    padding-top: 2vw;
+    padding-bottom: 4vw;
+    border-top: 0.2vw solid #78081C;
+    align-items: center;
+    background-color: #F7C301;
+}
+
+.contact h1
+{
+    font-size: 2.5vw;
+    color: #78081C;
+}
+
+.contact p
+{
+    font-size: 1.2vw;
+    line-height: 200%;
+}
+
+.contactinfo p
+{
+    margin-bottom: 3vw;
+}
+
+.contact form
+{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    padding: 2vw 3vw;
+    border-radius: 0.5vw;
+    background-color: #FFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.contact label
+{
+    margin-bottom: 0.5vw;
+    font-weight: 600;
+    font-size: 1.2vw;
+}
+
+.contact input, .contact textarea
+{
+    margin-bottom: 2vw;
+    padding: 0.5vw;
+    border: 0.1vw solid #666;
+    border-radius: 0.25vw;
+    font-size: 1vw;
+    background-color: #DDD;
+    resize: vertical;
+}
+
+.contact button
+{
+    display: flex;
+    width: fit-content;
+    padding: 0.4vw 2vw;
+    border: none;
+    border-radius: 0.25vw;
+    align-self: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1vw;
+    background-color: #78081C;
+    color: #F7C301;
+}

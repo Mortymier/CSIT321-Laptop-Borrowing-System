@@ -1,0 +1,19 @@
+REACT JS NOTES
+
+> Folder Structure (src)
+    # assets
+        - static files like images, css
+    # components
+        - common/shared elements of webpages
+    # pages
+        - contains webpage structures
+
+> Comments
+    To make a comment line in Javascript, use double backslashes (\\)
+
+> Importing:
+    Two dots (..) means go outside of the directory
+    One dot (.) means the same directory
+
+> React Returning Components
+    For some reason, you cannot put the opening parethesis on a different line from the return keyword
