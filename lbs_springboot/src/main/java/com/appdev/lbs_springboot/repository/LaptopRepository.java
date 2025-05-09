@@ -7,5 +7,5 @@ import com.appdev.lbs_springboot.entity.LaptopEntity;
 @Repository
 public interface LaptopRepository extends JpaRepository<LaptopEntity, Integer>
 {
-
+    public LaptopEntity findByModel(String model);
 }

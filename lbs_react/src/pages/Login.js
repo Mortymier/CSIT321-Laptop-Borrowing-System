@@ -27,14 +27,17 @@ export default function Login()
                 // Save student data before going to the dashboard
                 const studentData = await response.json();
                 localStorage.setItem('loggedInStudent', JSON.stringify(studentData));
-
                 console.log('Student logged in successfully');
                 navigate('/studentdashboard');
             }
             else if(response.ok && role === 'staff')
             {
+                // Save role to storage, add laptop page will check if the role of the user is staff
+                const staffData = await response.json();
+                localStorage.setItem('LoggedInStaff', JSON.stringify(staffData));
+                localStorage.setItem('userRole', role);
                 console.log('Staff logged in successfully');
-                navigate('/');
+                navigate('/addlaptop');
             }
             else if(response.status === 401)
             {

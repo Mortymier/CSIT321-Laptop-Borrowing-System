@@ -3,15 +3,15 @@ import citu_logo from '../assets/images/citu_logo.png';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-export default function StudentHeader()
+export default function StaffHeader()
 {
     let location = useLocation();
     const navigate = useNavigate();
 
     const handleLogout = () =>
     {
-        localStorage.removeItem('loggedInStudent');
-        console.log('Student has logged out');
+        localStorage.removeItem('loggedInStaff');
+        console.log('Staff has logged out');
         navigate('/login');
     };
 
@@ -26,8 +26,7 @@ export default function StudentHeader()
 
             <nav>
 				<ul>
-					<li> <a id={location.pathname === '/studentdashboard' ? 'current' : ''} href="/studentdashboard">Dashboard</a> </li>
-                    <li> <a id={location.pathname === '/browselaptops' ? 'current' : ''} href="/browselaptops"> Browse </a> </li>
+					<li> <a id={location.pathname === '/addlaptop' ? 'current' : ''} href="/addlaptop">Add Laptop</a> </li>
                     <button onClick={handleLogout}> Logout </button>
 				</ul>
 			</nav>

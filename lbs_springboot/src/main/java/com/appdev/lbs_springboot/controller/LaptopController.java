@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/api/laptops")
 public class LaptopController 
 {
