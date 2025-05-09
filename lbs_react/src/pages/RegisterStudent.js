@@ -1,8 +1,8 @@
-import '../assets/css/RegisterStudent.css'
-import Header from '../components/Header.js'
-import Footer from '../components/Footer.js'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import '../assets/css/RegisterStudent.css';
+import Header from '../components/Header.js';
+import Footer from '../components/Footer.js';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function RegisterStudent()
 {

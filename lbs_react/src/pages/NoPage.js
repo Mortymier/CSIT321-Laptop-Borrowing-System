@@ -1,4 +1,4 @@
-import '../assets/css/NoPage.css'
+import '../assets/css/NoPage.css';
 
 export default function NoPage()
 {

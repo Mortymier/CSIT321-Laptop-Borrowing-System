@@ -5,6 +5,7 @@ import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import RegisterStudent from './pages/RegisterStudent';
+import RegisterStaff from './pages/RegisterStaff';
 import StudentDashboard from './pages/StudentDashboard';
 import NoPage from './pages/NoPage';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
@@ -21,6 +22,7 @@ export default function App()
           <Route path="login" element={<Login/>}/>
           <Route path="register" element={<Register/>}/>
           <Route path="registerstudent" element={<RegisterStudent/>}/>
+          <Route path="registerstaff" element={<RegisterStaff/>}/>
           <Route path="studentdashboard" element={<StudentDashboard/>}/>
           <Route path="*" element={<NoPage/>}/>
         </Routes>

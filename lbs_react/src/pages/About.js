@@ -1,7 +1,7 @@
-import '../assets/css/About.css'
+import '../assets/css/About.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import laptop_about from '../assets/images/laptop_about.jpg'
+import laptop_about from '../assets/images/laptop_about.jpg';
 
 export default function About()
 {

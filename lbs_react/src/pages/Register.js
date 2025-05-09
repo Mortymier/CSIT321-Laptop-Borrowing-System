@@ -17,7 +17,7 @@ export default function Register()
                     <hr/>
                     <a href="registerstudent"> <button> Student </button> </a>
                     <p> or </p>
-                    <button> Staff </button>
+                    <a href="registerstaff"> <button> Staff </button> </a>
                 </div>
             </main>
 

@@ -2,82 +2,68 @@ package com.appdev.lbs_springboot.service;
 
 import com.appdev.lbs_springboot.entity.StaffEntity;
 import com.appdev.lbs_springboot.repository.StaffRepository;
-import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
-import java.util.NoSuchElementException;
-import javax.naming.NameNotFoundException;
 
 @Service
-public class StaffService 
-{
+public class StaffService {
+
     @Autowired
     private StaffRepository staffRepository;
 
-    public StaffService()
-    {
+    public StaffService() {
         super();
     }
 
-    // POST or CREATE
-    public StaffEntity addStaff(StaffEntity staff)
-    {
+    // CREATE
+    public StaffEntity addStaff(StaffEntity staff) {
         return staffRepository.save(staff);
     }
 
-    // GET or READ
-    public List<StaffEntity> getAllStaffs()
-    {
+    // READ ALL
+    public List<StaffEntity> getAllStaffs() {
         return staffRepository.findAll();
     }
 
-    public Optional<StaffEntity> getStaffById(int id)
-    {
+    // READ BY ID
+    public Optional<StaffEntity> getStaffById(int id) {
         return staffRepository.findById(id);
     }
 
-    // PUT or UPDATE
-    @SuppressWarnings("finally")
-    public StaffEntity updateStaff(int id, StaffEntity updatedStaff)
-    {
-        StaffEntity currentStaff = new StaffEntity();
+    // READ BY EMAIL
+    public StaffEntity getStaffByEmail(String email) {
+        return staffRepository.findByEmail(email);
+    }
 
-        try
-        {
-            currentStaff = staffRepository.findById(id).get();
-            currentStaff.setEmail(updatedStaff.getEmail());
-            currentStaff.setFirstName(updatedStaff.getFirstName());
-            currentStaff.setLastName(updatedStaff.getLastName());
-            currentStaff.setPassword(updatedStaff.getPassword());
-        }
-        catch(NoSuchElementException e)
-        {
-            throw new NameNotFoundException("Staff " + id + " does not exist!");
-        }
-        finally
-        {
-            return staffRepository.save(currentStaff);
-        }
+    // LOGIN
+    public Optional<StaffEntity> loginStaff(String email, String password) {
+        return staffRepository.findByEmailAndPassword(email, password);
+    }
+
+    // REGISTER
+    public StaffEntity registerStaff(StaffEntity staff) {
+        return staffRepository.save(staff);
+    }
+
+    // UPDATE
+    public StaffEntity updateStaff(int id, StaffEntity updatedStaff) {
+        StaffEntity staff = staffRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Staff not found"));
+
+        staff.setFirstName(updatedStaff.getFirstName());
+        staff.setLastName(updatedStaff.getLastName());
+        staff.setEmail(updatedStaff.getEmail());
+        staff.setPassword(updatedStaff.getPassword());
+
+        return staffRepository.save(staff);
     }
 
     // DELETE
-    @SuppressWarnings("unused")
-    public String deleteStaff(int id)
-    {
-        String msg = "";
-
-        if(staffRepository.findById(id) != null)
-        {
-            staffRepository.deleteById(id);
-            msg = "Staff record " + id + " has been successfully deleted!";
-        }
-        else
-        {
-            msg = "Staff record " + id + " does not exist!";
-        }
-
-        return msg;
+    public void deleteStaff(int id) {
+        StaffEntity staff = staffRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Staff not found"));
+        staffRepository.delete(staff);
     }
 }
-

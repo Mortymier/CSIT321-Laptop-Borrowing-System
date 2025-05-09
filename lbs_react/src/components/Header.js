@@ -1,6 +1,6 @@
-import '../assets/css/Header.css'
+import '../assets/css/Header.css';
 import citu_logo from '../assets/images/citu_logo.png';
-import {useLocation} from 'react-router-dom'
+import { useLocation } from 'react-router-dom';
 
 export default function Header()
 {

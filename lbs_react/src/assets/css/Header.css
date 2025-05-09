@@ -86,6 +86,20 @@ a
 	color: #999;
 }
 
+header button
+{
+    width: fit-content;
+	margin-left: 12vw;
+    padding: 0.5vw 1vw;
+    border: none;
+    border-radius: 0.5vw;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.2vw;
+    background-color: #78081C;
+    color: #F7C301;
+}
+
 
 
 
