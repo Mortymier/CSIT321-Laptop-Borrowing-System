@@ -1,6 +1,8 @@
 package com.appdev.lbs_springboot.service;
 
 import com.appdev.lbs_springboot.entity.BorrowEntity;
+import com.appdev.lbs_springboot.entity.BorrowEntity.BorrowStatus;
+import com.appdev.lbs_springboot.entity.StudentEntity;
 import com.appdev.lbs_springboot.repository.BorrowRepository;
 import com.appdev.lbs_springboot.repository.StudentRepository;
 import com.appdev.lbs_springboot.repository.StaffRepository;
@@ -41,6 +43,15 @@ public class BorrowService
         return brepo.save(borrow);
     }
 
+    public BorrowEntity createBorrowRecord(String email, String model, BorrowEntity borrow)
+    {
+        BorrowEntity newBorrow = borrow;
+        newBorrow.setStudent(sturepo.findByEmail(email));
+        newBorrow.setLaptop(laprepo.findByModel(model));
+        newBorrow.setStaff(starepo.findById(1).get());
+        return brepo.save(newBorrow);
+    }
+
     // GET or READ
     public List<BorrowEntity> getBorrowRecords()
     {
@@ -50,6 +61,23 @@ public class BorrowService
     public Optional<BorrowEntity> getBorrowRecordById(int id)
     {
         return brepo.findById(id);
+    }
+
+    // Get all borrow records of a specific student with approved status
+    public List<BorrowEntity> getApprovedBorrowRecordsByStudentEmail(String email)
+    {
+        StudentEntity student = sturepo.findByEmail(email);
+        BorrowStatus borrowStatus = BorrowStatus.APPROVED;
+        return brepo.findByStudentAndBorrowStatus(student, borrowStatus);
+    }
+
+    // Get all borrow records of a specific student with pending status
+    public List<BorrowEntity> getPendingBorrowRecordsByStudentEmail(String email)
+    {
+        StudentEntity student = sturepo.findByEmail(email);
+        BorrowStatus borrowStatus = BorrowStatus.REVIEW;
+        return brepo.findByStudentAndBorrowStatus(student, borrowStatus);
+        //return brepo.findByStudent(student);
     }
 
     // PUT or UPDATE

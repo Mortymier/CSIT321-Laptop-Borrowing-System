@@ -20,6 +20,55 @@
 {
     margin: 0;
     margin-left: 10vw;
+    margin-bottom: 1vw;
     font-size: 1.5vw;
 
+}
+
+.studentdashboard table
+{
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 6vw;
+    border: 0.1vw solid #CCC;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.studentdashboard tr
+{
+    border-bottom: 0.1vw solid #CCC;
+}
+
+.studentdashboard tr:nth-child(2n)
+{
+    background-color: #EEE;
+}
+
+.studentdashboard th
+{
+    padding: 0.5vw 1vw;
+    text-align: left;
+    font-size: 1.1vw;
+    background-color: #78081C;
+    color: #FFF;
+}
+
+.studentdashboard td
+{
+    padding: 0.5vw 1vw;
+    font-size: 1.1vw;
+    text-align: left;
+}
+
+.approvedborrows tr td:last-child
+{
+    font-weight: 600;
+    color: lightgreen;
+}
+
+.pendingborrows tr td:last-child
+{
+    font-weight: 600;
+    color: gold;
 }

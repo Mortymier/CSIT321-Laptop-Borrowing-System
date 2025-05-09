@@ -8,7 +8,8 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/borrow")
+@CrossOrigin("*")
+@RequestMapping("/api/borrows")
 public class BorrowController 
 {
     @Autowired
@@ -19,6 +20,12 @@ public class BorrowController
     public BorrowEntity postBorrowRecord(@PathVariable int studentid, @PathVariable int staffid, @PathVariable int laptopid, @RequestBody BorrowEntity borrow)
     {
         return bserv.postBorrowRecord(studentid, staffid, laptopid, borrow);
+    }
+
+    @PostMapping("createborrowrecord/{email}/{model}")
+    public BorrowEntity createBorrowRecord(@PathVariable String email, @PathVariable String model, @RequestBody BorrowEntity borrow)
+    {
+        return bserv.createBorrowRecord(email, model, borrow);
     }
 
     // GET or READ
@@ -32,6 +39,18 @@ public class BorrowController
     public Optional<BorrowEntity> getBorrowRecordById(@PathVariable int id)
     {
         return bserv.getBorrowRecordById(id);
+    }
+
+    @GetMapping("/getpendingborrows/{studentEmail}")
+    public List<BorrowEntity> getPendingBorrowRecordsByStudent(@PathVariable String studentEmail)
+    {
+        return bserv.getPendingBorrowRecordsByStudentEmail(studentEmail);
+    }
+
+    @GetMapping("/getapprovedborrows/{studentEmail}")
+    public List<BorrowEntity> getApprovedBorrowRecordsByStudent(@PathVariable String studentEmail)
+    {
+        return bserv.getApprovedBorrowRecordsByStudentEmail(studentEmail);
     }
 
     // PUT or UPDATE
