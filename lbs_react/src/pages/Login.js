@@ -8,6 +8,7 @@ export default function Login()
 {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [role, setRole] = useState('student');
     const navigate = useNavigate()
 
     const handleLogin = async (e) => 
@@ -16,19 +17,24 @@ export default function Login()
 
         try
         {
-            const response = await fetch(`http://localhost:8080/api/students/login?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`, {
+            const response = await fetch(`http://localhost:8080/api/${role}s/login?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
             });
 
-            if(response.ok) 
+            if(response.ok && role === 'student') 
             {
                 // Save student data before going to the dashboard
                 const studentData = await response.json();
                 localStorage.setItem('loggedInStudent', JSON.stringify(studentData));
 
-                console.log('Logged in successfully');
-                navigate('/studentdashboard')
+                console.log('Student logged in successfully');
+                navigate('/studentdashboard');
+            }
+            else if(response.ok && role === 'staff')
+            {
+                console.log('Staff logged in successfully');
+                navigate('/');
             }
             else if(response.status === 401)
             {
@@ -57,6 +63,12 @@ export default function Login()
                     <h1> Welcome, Wildcat </h1>
                     <p> Please enter your information </p>
                     <hr/>
+
+                    <label htmlFor="role">Role</label>
+                    <select id="role" value={role} onChange={(e) => setRole(e.target.value)}>
+                        <option value="student">Student</option>
+                        <option value="staff">Staff</option>
+                    </select>
 
                     <label htmlFor="email"> Email </label>
                     <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>

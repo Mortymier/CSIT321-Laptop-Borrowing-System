@@ -47,7 +47,7 @@
     font-size: 1.2vw;
 }
 
-.login input
+.login input, .login select
 {
     margin-bottom: 2vw;
     padding: 0.5vw;
