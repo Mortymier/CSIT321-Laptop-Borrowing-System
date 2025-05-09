@@ -1,3 +1,6 @@
+import '../assets/css/StudentDashboard.css';
+import StudentHeader from '../components/StudentHeader';
+import Footer from '../components/Footer';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -24,17 +27,22 @@ export default function StudentDashboard()
         }
     }, [navigate]);
 
-    const handleLogout = () =>
-    {
-        localStorage.removeItem('loggedInStudent');
-        console.log(studentName + ' has logged out');
-        navigate('/login');
-    };
-
     return (
         <>
-            <h1> Welcome student {studentName} </h1>
-            <button onClick={handleLogout}> Logout </button>
+            <title> Student Dashboard - Laptop Borrowing System </title>
+
+            <StudentHeader/>
+
+            <main className="studentdashboard">
+                <h1> Welcome student, {studentName}! </h1>
+
+                <h2> Pending Borrows </h2>
+                <table>
+                    
+                </table>
+            </main>
+
+            <Footer/>
         </>
-    )
+    );
 }
