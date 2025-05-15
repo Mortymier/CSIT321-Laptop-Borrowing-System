@@ -1,6 +1,7 @@
 package com.appdev.lbs_springboot.service;
 
 import com.appdev.lbs_springboot.entity.BorrowEntity;
+import com.appdev.lbs_springboot.entity.LaptopEntity;
 import com.appdev.lbs_springboot.entity.BorrowEntity.BorrowStatus;
 import com.appdev.lbs_springboot.entity.StudentEntity;
 import com.appdev.lbs_springboot.repository.BorrowRepository;
@@ -9,6 +10,9 @@ import com.appdev.lbs_springboot.repository.StaffRepository;
 import com.appdev.lbs_springboot.repository.LaptopRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.NoSuchElementException;
@@ -80,6 +84,13 @@ public class BorrowService
         //return brepo.findByStudent(student);
     }
 
+    // Get all borrow records with a pending status
+    public List<BorrowEntity> getPendingBorrowRecords()
+    {
+        BorrowStatus borrowStatus = BorrowStatus.REVIEW;
+        return brepo.findByBorrowStatus(borrowStatus);
+    }
+
     // PUT or UPDATE
     @SuppressWarnings("finally")
     public BorrowEntity putBorrowRecord(int id, BorrowEntity updatedBorrow)
@@ -94,6 +105,34 @@ public class BorrowService
         catch(NoSuchElementException e)
         {
             throw new NameNotFoundException("Borrow " + id + " does not exist!");
+        }
+        finally
+        {
+            return brepo.save(currentBorrow);
+        }
+    }
+
+    // Update borrow status
+    @SuppressWarnings("finally")
+    public BorrowEntity updateBorrowStatus(BorrowStatus newStatus, BorrowEntity updatedBorrow)
+    {
+        BorrowEntity currentBorrow = new BorrowEntity();
+        LocalDate newReturnDate = LocalDate.now().plusDays(7);
+        Date newReturnDateSQL = Date.valueOf(newReturnDate);
+        
+
+        try
+        {
+            StudentEntity student = sturepo.findByEmail(updatedBorrow.getStudent().getEmail());
+            LaptopEntity laptop = laprepo.findByModel(updatedBorrow.getLaptop().getModel());
+            currentBorrow = brepo.findByStudentAndLaptop(student, laptop);
+            currentBorrow.setBorrowStatus(newStatus);
+            currentBorrow.setReturnDate(newReturnDate);
+            
+        }
+        catch(NoSuchElementException e)
+        {
+            throw new NameNotFoundException("Borrow record does not exist!");
         }
         finally
         {

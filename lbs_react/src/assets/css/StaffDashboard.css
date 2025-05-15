@@ -1,0 +1,97 @@
+.staffdashboard
+{
+    display: flex;
+    flex-direction: column;
+    padding-top: 4vw;
+    padding-bottom: 4vw;
+    border-top: 0.2vw solid #78081C;
+}
+
+.staffdashboard h1
+{
+    margin: 0;
+    margin-left: 8vw;
+    margin-bottom: 4vw;
+    font-size: 2vw;
+    color: #78081C;
+}
+
+.staffdashboard h2
+{
+    margin: 0;
+    margin-left: 8vw;
+    margin-bottom: 1vw;
+    font-size: 1.5vw;
+
+}
+
+.staffdashboard table
+{
+    width: 85%;
+    margin: 0 auto;
+    margin-bottom: 6vw;
+    border: 0.1vw solid #CCC;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.staffdashboard tr
+{
+    border-bottom: 0.1vw solid #CCC;
+}
+
+.staffdashboard tr:nth-child(2n)
+{
+    background-color: #EEE;
+}
+
+.staffdashboard th
+{
+    padding: 0.5vw 1vw;
+    text-align: left;
+    font-size: 1.1vw;
+    background-color: #78081C;
+    color: #FFF;
+}
+
+.staffdashboard td
+{
+    padding: 0.5vw 1vw;
+    font-size: 1.1vw;
+    text-align: left;
+}
+
+.staffdashboard tr td:last-child
+{
+    display: flex;
+    width: 16vw;
+    gap: 1vw;
+}
+
+.staffdashboard tr button:first-child
+{
+    width: 8vw;
+    padding: 0.5vw;
+    border: none;
+    border-radius: 0.25vw;
+    align-self: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1vw;
+    background-color: #F7C301;
+    color: #78081C;
+}
+
+.staffdashboard tr button:last-child
+{
+    width: 8vw;
+    padding: 0.5vw;
+    border: none;
+    border-radius: 0.25vw;
+    align-self: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1vw;
+    background-color: #78081C;
+    color: #FFF;
+}

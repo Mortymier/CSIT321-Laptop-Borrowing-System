@@ -8,6 +8,7 @@ import RegisterStudent from './pages/RegisterStudent';
 import RegisterStaff from './pages/RegisterStaff';
 import StudentDashboard from './pages/StudentDashboard';
 import BrowseLaptops from './pages/BrowseLaptops';
+import StaffDashboard from './pages/StaffDashboard';
 import AddLaptop from './pages/AddLaptop';
 import NoPage from './pages/NoPage';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
@@ -27,6 +28,7 @@ export default function App()
           <Route path="registerstaff" element={<RegisterStaff/>}/>
           <Route path="studentdashboard" element={<StudentDashboard/>}/>
           <Route path="browselaptops" element={<BrowseLaptops/>}/>
+          <Route path="staffdashboard" element={<StaffDashboard/>}/>
           <Route path="addlaptop" element={<AddLaptop/>}/>
           <Route path="*" element={<NoPage/>}/>
         </Routes>

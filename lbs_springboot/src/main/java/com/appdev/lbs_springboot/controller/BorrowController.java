@@ -1,6 +1,7 @@
 package com.appdev.lbs_springboot.controller;
 
 import com.appdev.lbs_springboot.entity.BorrowEntity;
+import com.appdev.lbs_springboot.entity.BorrowEntity.BorrowStatus;
 import com.appdev.lbs_springboot.service.BorrowService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,11 +54,23 @@ public class BorrowController
         return bserv.getApprovedBorrowRecordsByStudentEmail(studentEmail);
     }
 
+    @GetMapping("/getpendingborrows")
+    public List<BorrowEntity> getPendingBorrowRecords()
+    {
+        return bserv.getPendingBorrowRecords();
+    }
+
     // PUT or UPDATE
     @PutMapping("/putborrowrecord/{id}")
     public BorrowEntity putBorrowRecord(@PathVariable int id, @RequestBody BorrowEntity updatedBorrow)
     {
         return bserv.putBorrowRecord(id, updatedBorrow);
+    }
+
+    @PutMapping("/updateborrowstatus/{newStatus}")
+    public BorrowEntity updateBorrowStatus(@PathVariable BorrowStatus newStatus, @RequestBody BorrowEntity updatedBorrow)
+    {
+        return bserv.updateBorrowStatus(newStatus, updatedBorrow);
     }
 
     // DELETE

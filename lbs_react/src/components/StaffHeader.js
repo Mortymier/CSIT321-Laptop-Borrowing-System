@@ -26,6 +26,7 @@ export default function StaffHeader()
 
             <nav>
 				<ul>
+                    <li> <a id={location.pathname === '/staffdashboard' ? 'current' : ''} href="/staffdashboard">Dashboard</a> </li>
 					<li> <a id={location.pathname === '/addlaptop' ? 'current' : ''} href="/addlaptop">Add Laptop</a> </li>
                     <button onClick={handleLogout}> Logout </button>
 				</ul>

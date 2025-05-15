@@ -34,10 +34,10 @@ export default function Login()
             {
                 // Save role to storage, add laptop page will check if the role of the user is staff
                 const staffData = await response.json();
-                localStorage.setItem('LoggedInStaff', JSON.stringify(staffData));
+                localStorage.setItem('loggedInStaff', JSON.stringify(staffData));
                 localStorage.setItem('userRole', role);
                 console.log('Staff logged in successfully');
-                navigate('/addlaptop');
+                navigate('/staffdashboard');
             }
             else if(response.status === 401)
             {
