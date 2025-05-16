@@ -21,5 +21,5 @@ many unnecessary and inefficient lines of code. There are also a lot of missing 
 for students whenever their borrow request gets approved/rejected and a search bar with filters so that
 you can easily find laptops. Still, I was able to learn a lot from this project. Concepts like APIs, hooks, 
 and more were fun to learn. It was actually my first time using React and Spring Boot, so I had to rely on a lot
-of tutorials in order to help build this project. Moving on, I think I'm going to learn more about these two
-frameworks since there is a high chance we will be using them in our capstone project.
+of tutorials and forums in order to help build this project. Moving on, I think I'm going to learn more about 
+these two frameworks since there is a high chance we will be using them in our capstone project.
